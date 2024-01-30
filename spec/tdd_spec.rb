@@ -43,21 +43,24 @@ describe "tdd" do
     end
   end
 
+  describe "#my_transpose" do
+    let(:input){[[0, 1, 2], [3, 4, 5], [6, 7, 8]]}
+    let(:expected){[[0, 3, 6], [1, 4, 7], [2, 5, 8]]}
+
+    it "should return a new matrix with it's rows and columns switched" do
+      expect(input.my_transpose).to eq(expected)
+    end
+
+    it "should not call the built in Array#transpose method" do
+      expect(input).to_not receive(:transpose)
+      input.my_transpose
+    end
+    
+  end
+
 end
 
-#accepts arr
-#raise err if another type
 
-#remove dupes
-#count = exactly  1
-
-
-#returns new arr
-#return uniq eles
-#return in order they appeared
-#origin i of 1 < index 2 or 3
-
-#expect ([-1, 0, 2, -2, 1]. )to eq [[0, 4], [2, 3]]
-#needs to be called on an Array
-#expect output to be a 2D array
-#val at [0][0] should be <= val at [1][0] in the answer array 
+#does not call built in transpose method
+#should return matrix with rows & cols swapped
+#
